@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+body {
+  background-color: rgb(232, 232, 232);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list {
+  max-width: 640px;
+  width: calc(100% - 20px);
+  margin: 20px auto;
+  background-color: #fff;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* nth-child(2n) =>2배수
+nth-child(odd) => 홀수
+nth-child(even) => 짝수 */
+ 
+.list ul li::before {
+  content: '📣';
+  margin-right: 5px;
+  display: inline-block;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list ul li:nth-child(2n)::before {
+  content: '💕';
 }
-
-.App-link {
-  color: #61dafb;
+.list ul li {
+  padding: 15px 5px;
+  /* padding-left: 10px; */
+  border-bottom: 1px dashed #eee;
+  position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list ul li span::before {
+  content: '🗑️';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
 }
